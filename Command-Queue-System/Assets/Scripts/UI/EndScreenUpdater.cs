@@ -11,15 +11,14 @@ public class EndScreenUpdater : MonoBehaviour
     private GameObject continueButton;
     private void Start()
     {
-        show += ShowEndScreen;
-
-        canvasGroup = gameObject.GetComponent<CanvasGroup>();
+        show = ShowEndScreen;
         continueButton = transform.GetChild(1).gameObject;
         continueButton.SetActive(false);
     }
 
     public void ShowEndScreen(bool canContinue, string endText)
     {
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (canContinue)

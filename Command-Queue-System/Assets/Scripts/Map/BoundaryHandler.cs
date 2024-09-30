@@ -33,6 +33,7 @@ public class BoundaryHandler : MonoBehaviour
 
     public static bool IsPlayerPositionValid(Vector3 playerPos)
     {
+        // If a tile with the same position as the player doesn't exist
         if (!Array.Exists(tilePath, t => t.position == playerPos))
         {
             return false;

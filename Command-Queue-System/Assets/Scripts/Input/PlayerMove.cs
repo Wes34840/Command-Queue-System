@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (ctx.performed && ctx.ReadValue<Vector2>() != null)
         {
+            // Add command into queue using the direction of the input
             Vector2 direction = ctx.ReadValue<Vector2>();
             AddCommand(new MoveCommand(gameObject, direction), direction);
             return;
@@ -37,6 +38,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (ctx.performed)
         {
+            // Add attack command into queue
             AddCommand(new AttackCommand(), Vector2.zero);
             return;
         }
@@ -46,6 +48,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (ctx.performed)
         {
+            // Remove last command from the list
             removeIcon.Invoke();
             commandQueue.Remove(commandQueue.Last());
             return;
@@ -72,6 +75,7 @@ public class PlayerMove : MonoBehaviour
         {
             BoundaryHandler.OutOfBounds();
             return;
+            // if the player ends the movement method not on a tile, the player loses the game
         }
         if (commandIndex == commandQueue.Count)
         {

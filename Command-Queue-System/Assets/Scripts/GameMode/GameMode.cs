@@ -29,7 +29,7 @@ public class GameMode : MonoBehaviour
             loseMessage = "You lose, You went out of bounds";
             // change text of endscreen to out of bounds
         }
-        // leave text out
+        // leave text as it is if the player is not out of bounds
 
         EndScreenUpdater.show.Invoke(false, loseMessage);
     }

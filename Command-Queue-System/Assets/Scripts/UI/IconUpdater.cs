@@ -28,6 +28,7 @@ public class IconUpdater : MonoBehaviour
 
     public void AddIcon(Vector2 direction)
     {
+        // Add a sprite of the direction or action of the player onto the screen
         GameObject newIcon = Instantiate(iconPrefab, Vector3.zero, Quaternion.identity);
         RectTransform parentTransform = GetComponent<RectTransform>();
         newIcon.transform.SetParent(transform);
@@ -39,6 +40,7 @@ public class IconUpdater : MonoBehaviour
 
     public void RemoveIcon()
     {
+        // Remove the latest added icon from the screen
         GameObject icon = iconQueue.Last();
         iconQueue.Remove(icon);
         Destroy(icon);
@@ -46,6 +48,7 @@ public class IconUpdater : MonoBehaviour
 
     public Sprite DetermineSprite(Vector2 direction)
     {
+        // return the sprite of the direction, if there is no direction, it's an attack command
         return spritesDictionary[direction];
     }
 
